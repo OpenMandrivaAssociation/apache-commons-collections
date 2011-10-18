@@ -3,7 +3,7 @@
 
 Name:           apache-%{short_name}
 Version:        3.2.1
-Release:        9
+Release:        10
 Summary:        Provides new interfaces, implementations and utilities for Java Collections
 License:        ASL 2.0
 Group:          Development/Java
