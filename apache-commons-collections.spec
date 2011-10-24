@@ -3,7 +3,7 @@
 
 Name:           apache-%{short_name}
 Version:        3.2.1
-Release:        10
+Release:        9
 Summary:        Provides new interfaces, implementations and utilities for Java Collections
 License:        ASL 2.0
 Group:          Development/Java
@@ -18,7 +18,7 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
 
 BuildRequires: java-devel
-BuildRequires: jpackage-utils >= 0:1.7.5
+BuildRequires: jpackage-utils
 BuildRequires: maven2
 BuildRequires: maven-antrun-plugin
 BuildRequires: maven-assembly-plugin
@@ -37,9 +37,9 @@ BuildRequires: saxon
 BuildRequires: saxon-scripts
 BuildRequires: apache-commons-parent
 Requires:      java
-Requires:      jpackage-utils >= 0:1.7.5
-Requires(post): jpackage-utils >= 0:1.7.5
-Requires(postun): jpackage-utils >= 0:1.7.5
+Requires:      jpackage-utils
+Requires(post): jpackage-utils
+Requires(postun): jpackage-utils
 
 Provides:       jakarta-%{short_name} = %{version}-%{release}
 Obsoletes:      jakarta-%{short_name} < %{version}-%{release}
@@ -73,7 +73,7 @@ Obsoletes:      jakarta-%{short_name}-testframework < %{version}-%{release}
 Summary:        Javadoc for %{name}
 Group:          Development/Java
 Requires:       %{name} = %{version}-%{release}
-Requires:       jpackage-utils >= 0:1.7.5
+Requires:       jpackage-utils
 Provides:       jakarta-%{short_name}-javadoc = %{version}-%{release}
 Obsoletes:      jakarta-%{short_name}-javadoc < %{version}-%{release}
 
