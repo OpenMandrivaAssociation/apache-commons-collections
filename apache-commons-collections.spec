@@ -18,7 +18,7 @@ Patch4:         commons-collections-3.2-build_xml.patch
 BuildArch:      noarch
 
 BuildRequires: java-devel
-
+BuildRequires:	dos2unix
 BuildRequires: jpackage-utils
 BuildRequires: maven-local
 BuildRequires: ant
