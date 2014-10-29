@@ -4,7 +4,7 @@
 
 Name:           apache-%{short_name}
 Version:        3.2.1
-Release:        19.1%{?dist}
+Release:        20
 Summary:        Provides new interfaces, implementations and utilities for Java Collections
 License:        ASL 2.0
 
@@ -12,12 +12,13 @@ URL:            http://commons.apache.org/%{base_name}/
 Source0:        http://www.apache.org/dist/commons/%{base_name}/source/%{short_name}-%{version}-src.tar.gz
 Source1:        commons-collections-testframework.pom
 
-Patch0:         jakarta-%{short_name}-javadoc-nonet.patch
+Patch0:		java8-compat.patch
+Patch1:         jakarta-%{short_name}-javadoc-nonet.patch
 Patch4:         commons-collections-3.2-build_xml.patch
-
 BuildArch:      noarch
 
 BuildRequires: java-devel
+
 BuildRequires: jpackage-utils
 BuildRequires: maven-local
 BuildRequires: ant
@@ -78,8 +79,10 @@ Obsoletes:      jakarta-%{short_name}-testframework-javadoc < %{version}-%{relea
 # remove all binary libs
 find . -name "*.jar" -exec rm -f {} \;
 find . -name "*.class" -exec rm -f {} \;
+find . -name "*.java" |xargs dos2unix
 
 %patch0 -p1
+%patch1 -p1
 %patch4 -b .sav
 
 # Fix file eof
