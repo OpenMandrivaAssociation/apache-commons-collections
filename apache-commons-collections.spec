@@ -4,7 +4,8 @@
 
 Name:           apache-%{short_name}
 Version:        3.2.1
-Release:        21
+Release:        21.1
+Group:		Development/Java
 Summary:        Provides new interfaces, implementations and utilities for Java Collections
 License:        ASL 2.0
 
@@ -132,16 +133,12 @@ cp -pr build/docs/testframework/* $RPM_BUILD_ROOT%{_javadocdir}/%{name}-testfram
 ln -s %{name}-testframework-%{version} $RPM_BUILD_ROOT%{_javadocdir}/%{name}-testframework 
 
 
-%files
+%files -f .mfiles
 %doc PROPOSAL.html README.txt LICENSE.txt RELEASE-NOTES.html NOTICE.txt
-%{_mavenpomdir}/JPP-%{short_name}.pom
-%{_mavendepmapfragdir}/%{name}
 %{_javadir}/%{name}.jar
 %{_javadir}/%{short_name}.jar
 
-%files testframework
-%{_mavenpomdir}/JPP-%{short_name}-testframework.pom
-%{_mavendepmapfragdir}/%{name}-testframework
+%files testframework -f .mfiles-testframework
 %{_javadir}/%{name}-testframework.jar
 %{_javadir}/%{short_name}-testframework.jar
 
@@ -157,6 +154,9 @@ ln -s %{name}-testframework-%{version} $RPM_BUILD_ROOT%{_javadocdir}/%{name}-tes
 
 
 %changelog
+* Wed May 21 2014 Mikolaj Izdebski <mizdebsk@redhat.com> - 3.2.1-21
+- Use .mfiles generated during build
+
 * Mon Aug 12 2013 Mat Booth <fedora@matbooth.co.uk> - 3.2.1-19
 - Fix FTBFS rhbz #991965
 
